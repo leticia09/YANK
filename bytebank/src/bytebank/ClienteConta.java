@@ -8,7 +8,7 @@ public class ClienteConta {
 		leticia.cpf = "073.026.421-17";
 		leticia.profissao = "Desenvolvedora";
 		
-		Conta contaDaLeticia = new Conta(); 
+		Conta contaDaLeticia = new Conta(2213,45321); 
 		
 		contaDaLeticia.deposita(1000);
 		
@@ -16,7 +16,7 @@ public class ClienteConta {
 		
 		System.out.println(contaDaLeticia.titular.nome);
 		
-		Conta contaBia = new Conta();
+		Conta contaBia = new Conta(4321, 325312);
 		contaBia.titular = new Cliente();
 		
 		contaBia.titular.nome = "Beatriz Rapariga";

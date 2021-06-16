@@ -14,24 +14,19 @@ public abstract class Conta {
 
 	public abstract void deposita(double valor);
 
-	public boolean saca(double valor) {
-		if (saldo >= valor) {
-			this.saldo -= valor;
-			return true;
-		} else {
-			return false;
+	public void saca(double valor) {
+		if (saldo < valor) {
+			throw new SaldoInsuficienteException("Saldo: " + this.saldo + ", valor: " + valor);
+
 		}
+
+		this.saldo -= valor;
 
 	}
 
-	public boolean transfere(double valor, Conta destino) {
-		if (this.saca(valor)) {
-			destino.deposita(valor);
-			return true;
-		} else {
-			return false;
-		}
-
+	public void transfere(double valor, Conta destino) {
+		this.saca(valor);
+		destino.deposita(valor);
 	}
 
 	public double getSaldo() {
